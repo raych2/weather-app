@@ -1,10 +1,4 @@
-let weatherDescription;
-let currentTemp;
-let maxTemp;
-let minTemp;
-let feels;
-let humidity;
-let windSpeed;
+import { processData, renderDisplay } from './display';
 
 async function fetchWeatherData(location) {
   const response = await fetch(
@@ -16,34 +10,10 @@ async function fetchWeatherData(location) {
   } else if (response.status === 404) {
     alert('City not found');
   } else {
-    const data = await response.json();
-    console.log(data);
-    weatherDescription = data.weather[0].description;
-    currentTemp = data.main.temp;
-    maxTemp = data.main.temp_max;
-    minTemp = data.main.temp_min;
-    feels = data.main.feels_like;
-    humidity = data.main.humidity;
-    windSpeed = data.wind.speed;
-    console.log(
-      weatherDescription,
-      currentTemp,
-      maxTemp,
-      minTemp,
-      feels,
-      humidity,
-      windSpeed
-    );
+    const weatherData = await response.json();
+    const weatherObj = processData(weatherData);
+    renderDisplay(weatherObj);
   }
 }
 
-export {
-  weatherDescription,
-  currentTemp,
-  maxTemp,
-  minTemp,
-  feels,
-  humidity,
-  windSpeed,
-  fetchWeatherData,
-};
+export { fetchWeatherData };
