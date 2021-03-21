@@ -65,4 +65,4 @@ function renderDisplay(obj) {
   weatherDisplay.append(weatherContent);
 }
 
-export { processData, renderDisplay };
+export { processData, renderDisplay, weatherDisplay };
