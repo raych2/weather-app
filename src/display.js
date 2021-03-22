@@ -1,4 +1,5 @@
 const weatherDisplay = document.querySelector('.container');
+const button = document.querySelector('.unit-change');
 
 function processData(data) {
   const loc = data.name;
@@ -50,9 +51,9 @@ function renderDisplay(obj) {
   currentTempDisplay.innerText = `${obj.currentTemp}°`;
   maxTempDisplay.innerText = `H: ${obj.maxTemp}°`;
   minTempDisplay.innerText = `L: ${obj.minTemp}°`;
-  feelsDisplay.innerText = `${obj.feels}°`;
-  humidityDisplay.innerText = `${obj.humidity}%`;
-  windDisplay.innerText = `${obj.windSpeed} mph`;
+  feelsDisplay.innerText = `Feels like: ${obj.feels}°`;
+  humidityDisplay.innerText = `Humidity: ${obj.humidity}%`;
+  windDisplay.innerText = `Wind: ${obj.windSpeed} mph`;
   let displayList = [
     cityName,
     descriptionDisplay,
@@ -68,6 +69,36 @@ function renderDisplay(obj) {
     weatherContent.append(item);
   });
   weatherDisplay.append(weatherContent);
+
+  function changeUnits(e) {
+    if (e.target.value === 'C') {
+      currentTempDisplay.innerText = `${switchToCelcius(obj.currentTemp)}°`;
+      maxTempDisplay.innerText = `H: ${switchToCelcius(obj.maxTemp)}°`;
+      minTempDisplay.innerText = `L: ${switchToCelcius(obj.minTemp)}°`;
+      feelsDisplay.innerText = `Feels like: ${switchToCelcius(obj.feels)}°`;
+      windDisplay.innerText = `Wind: ${switchToMetric(obj.windSpeed)} m/s`;
+      e.target.value = 'F';
+      e.target.innerText = '°F';
+    } else {
+      currentTempDisplay.innerText = `${obj.currentTemp}°`;
+      maxTempDisplay.innerText = `H: ${obj.maxTemp}°`;
+      minTempDisplay.innerText = `L: ${obj.minTemp}°`;
+      feelsDisplay.innerText = `Feels like: ${obj.feels}°`;
+      windDisplay.innerText = `Wind: ${obj.windSpeed} mph`;
+      e.target.value = 'C';
+      e.target.innerText = '°C';
+    }
+  }
+
+  button.addEventListener('click', changeUnits);
+}
+
+function switchToCelcius(temp) {
+  return Math.round((temp - 32) * (5 / 9));
+}
+
+function switchToMetric(speed) {
+  return Math.round(speed / 2.237);
 }
 
 export { processData, renderDisplay, weatherDisplay };
