@@ -3,6 +3,7 @@ const weatherDisplay = document.querySelector('.container');
 function processData(data) {
   const loc = data.name;
   const weatherDescription = data.weather[0].description;
+  const weatherIcon = data.weather[0].icon;
   const currentTemp = Math.round(data.main.temp);
   const maxTemp = Math.round(data.main.temp_max);
   const minTemp = Math.round(data.main.temp_min);
@@ -12,6 +13,7 @@ function processData(data) {
   const content = {
     loc,
     weatherDescription,
+    weatherIcon,
     currentTemp,
     maxTemp,
     minTemp,
@@ -26,6 +28,7 @@ function processData(data) {
 function renderDisplay(obj) {
   const weatherContent = document.createElement('div');
   const cityName = document.createElement('div');
+  const iconDisplay = document.createElement('img');
   const descriptionDisplay = document.createElement('div');
   const currentTempDisplay = document.createElement('div');
   const maxTempDisplay = document.createElement('div');
@@ -43,6 +46,7 @@ function renderDisplay(obj) {
   windDisplay.classList.add('extra');
   cityName.innerText = obj.loc;
   descriptionDisplay.innerText = obj.weatherDescription;
+  iconDisplay.src = `http://openweathermap.org/img/wn/${obj.weatherIcon}.png`;
   currentTempDisplay.innerText = `${obj.currentTemp}°`;
   maxTempDisplay.innerText = `H: ${obj.maxTemp}°`;
   minTempDisplay.innerText = `L: ${obj.minTemp}°`;
@@ -52,6 +56,7 @@ function renderDisplay(obj) {
   let displayList = [
     cityName,
     descriptionDisplay,
+    iconDisplay,
     currentTempDisplay,
     maxTempDisplay,
     minTempDisplay,
