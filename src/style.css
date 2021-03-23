@@ -5,3 +5,53 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  background-image: url('./pexels-eberhard-grossgasteiger-2310713.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+form {
+  margin: 20px auto;
+}
+::placeholder {
+  color: #474747;
+}
+input,
+button[type='submit'] {
+  padding: 5px;
+  background: transparent no-repeat;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #000;
+  font: 100 1em 'Roboto', sans-serif;
+}
+.unit-change {
+  margin: 10px auto;
+  padding: 5px;
+  background: transparent no-repeat;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font: 300 1.25em 'Roboto', sans-serif;
+  color: #000;
+}
+.location {
+  font: 400 2.5em 'Roboto', sans-serif;
+}
+.weather-type {
+  font: 300 1.25em 'Roboto', sans-serif;
+}
+.current {
+  font: 400 5.5em 'Roboto', sans-serif;
+}
+.temp {
+  font: 300 1.25em 'Roboto', sans-serif;
+}
+.extra {
+  margin: 5px auto;
+  font: 300 1em 'Roboto', sans-serif;
+}
