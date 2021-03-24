@@ -1,6 +1,16 @@
 const weatherDisplay = document.querySelector('.container');
-const fButton = document.querySelector('.fahrenheit');
-const cButton = document.querySelector('.celcius');
+const buttons = document.querySelectorAll('.unit-change');
+const fButton = document.getElementById('fahrenheit');
+const cButton = document.getElementById('celcius');
+
+//add class to show which current unit is active
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', () => {
+    let current = document.querySelector('.active');
+    current.classList.remove('active');
+    buttons[i].classList.add('active');
+  });
+}
 
 function processData(data) {
   const loc = data.name;

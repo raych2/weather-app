@@ -39,6 +39,11 @@ button[type='submit'] {
   font: 300 1.25em 'Roboto', sans-serif;
   color: #000;
 }
+.active,
+.unit-change:hover {
+  background-color: #023e7d;
+  color: white;
+}
 .location {
   font: 400 2.5em 'Roboto', sans-serif;
 }
