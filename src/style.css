@@ -14,33 +14,34 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  color: #fff;
 }
 form {
   margin: 20px auto;
 }
 ::placeholder {
-  color: #474747;
+  color: #fff;
 }
 input,
 button[type='submit'] {
   padding: 5px;
   background: transparent no-repeat;
-  border: 1px solid #000;
+  border: 1px solid #fff;
   border-radius: 5px;
-  color: #000;
+  color: #fff;
   font: 100 1em 'Roboto', sans-serif;
 }
 .unit-change {
   margin: 10px auto;
   padding: 5px;
   background: transparent no-repeat;
-  border: 1px solid #000;
+  border: 1px solid #fff;
   border-radius: 5px;
   font: 300 1.25em 'Roboto', sans-serif;
-  color: #000;
+  color: #fff;
 }
 .active,
-.unit-change:hover {
+.unit-change:hover, button[type='submit']:hover {
   background-color: #023e7d;
   color: white;
 }

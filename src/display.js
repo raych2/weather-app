@@ -58,7 +58,8 @@ function renderDisplay(obj) {
   windDisplay.classList.add('extra');
   cityName.innerText = obj.loc;
   descriptionDisplay.innerText = obj.weatherDescription;
-  iconDisplay.src = `http://openweathermap.org/img/wn/${obj.weatherIcon}@2x.png`;
+  iconDisplay.src = `https://openweathermap.org/img/wn/${obj.weatherIcon}@2x.png`;
+  iconDisplay.alt = obj.weatherDescription;
   currentTempDisplay.innerText = `${obj.currentTemp}°`;
   maxTempDisplay.innerText = `H: ${obj.maxTemp}°`;
   minTempDisplay.innerText = `L: ${obj.minTemp}°`;
