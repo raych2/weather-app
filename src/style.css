@@ -31,6 +31,11 @@ button[type='submit'] {
   color: #fff;
   font: 100 1em 'Roboto', sans-serif;
 }
+.error {
+  margin-bottom: 10px;
+  font: 300 1.25em 'Roboto', sans-serif;
+  color: #ff0000;
+}
 .unit-change {
   margin: 10px auto;
   padding: 5px;
@@ -41,7 +46,8 @@ button[type='submit'] {
   color: #fff;
 }
 .active,
-.unit-change:hover, button[type='submit']:hover {
+.unit-change:hover,
+button[type='submit']:hover {
   background-color: #023e7d;
   color: white;
 }
